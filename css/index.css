@@ -1,0 +1,43 @@
+html,
+body,
+section{
+     font-family: Arial, sans-serif;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+     background-color:#F48FB1;
+}
+
+#map {
+        height: 100%;
+}
+
+.outermost{
+     padding-right: 1%;
+     padding-left: 3%;
+}
+
+.inputsection{
+     padding-top: 20%;
+}
+
+.heading{
+    margin: 1%;
+    color:#fff;
+    font-family: 'Fredoka One', cursive;
+    padding-bottom: 5%;
+}
+
+.image{
+    position:relative;
+    padding-top: 35%;
+    padding-left:80%;
+}
+
+td{
+    color:#fff;
+}
+
+#findloc{
+    color:#000;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+     <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <!--calling css file-->
+          <link rel="stylesheet" href="css/index.css">
+
+          <!-- Latest compiled and minified CSS -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+          <!-- Optional theme -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+          <!--font family -->
+          <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+     </head>
+     <body>
+
+          <section class="row outermost">
+               <div id="blacksection" data-bind="css:ifclasspresentone"><!--class added or removed on basis of the value returned by ifclasspresentone -->
+                    <section class="row inputsection">
+                         <span data-bind="visible: shouldShowMessage"><!--this element span will be shown only if shouldShowMessage returns true-->
+                         <h2 class="heading">FAMOUS PLACES IN YOUR NEIGHBOUR</h2>
+                         <input id="inputloc" type="text" placeholder="Enter the location" data-bind="value: searchTerm, valueUpdate: 'afterkeydown', event: {keyup: searching}">
+                         </span>
+                         <!-- onclick clickeffect() gets called also the attribute value changed on basis of changesign() value-->
+                         <input id="findloc" type="button" value="<<<<<" data-bind="click:clickeffect,attr: { value:changesign }">
+                    </section>
+                    <table  class="list">
+                        <!--data bound by the returned value of results -->
+                        <tbody data-bind="foreach:results">
+                             <tr>
+                                   <td data-bind="text:$data,click:$parent.listclick"></td>
+                             </tr>
+                         </tbody>
+                    </table>
+               </div>
+               <div id="map" data-bind="css:ifclasspresenttwo" ></div><!--class added or removed on basis of the value returned by ifclasspresenttwo -->
+          </section>
+          <!--jquery file-->
+          <script src="js/jquery-3.2.1.js"></script>
+          <!-- Latest compiled and minified JavaScript for bootstrap -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+          <!-- knockout.js -->
+          <script src="js/knockout-3.4.2.js"></script>
+          <script src="js/index.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBcNXPP5zEd7-q4AF8c-yHLg4p1bBi0Hv4&v=3&callback=initMap" onerror="mapnotloaded()">
+          </script>
+     </body>
+</html>
