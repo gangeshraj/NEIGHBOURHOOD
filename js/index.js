@@ -1,5 +1,6 @@
 var map;//variable for map initialisation
 var inputarea="";//contains the input given ininput area
+var infowindowsObject=[];
 
 //places array is the array which has the locations shoen it wont be modified
 var places=ko.observableArray(["Toronto","New York","Washington","Las Vegas","Rio De Janiero","Mexico City"]);
@@ -208,6 +209,12 @@ function createMapMarker(placeData) {
 
 var callcreatemarkers=function() {//it will be called whenever we change the input in input area except first time it is invoked
      //make markers visibilityfalse
+     for(let i=0;i<infowindowsObject.length;++i)//closing infboxes
+     {
+          infowindowsObject[i].close(map,self);
+          //infowindowsObject[i],close();
+     }
+     infowindowsObject=[];
      for(let i=0;i<markers.length;++i)
           {
                markers[i].setVisible(false);
@@ -285,6 +292,8 @@ var callcreatemarkers=function() {//it will be called whenever we change the inp
           this.Window = new google.maps.InfoWindow({content: this.contentofinfowindow});
           this.Window.setContent(contentofinfowindow);
           this.Window.open(map,self);
+          infowindowsObject.push(this.Window);
+
 
      }).fail(function( jqxhr, textStatus, error ) {//if error
           var err = textStatus + ", " + error;
