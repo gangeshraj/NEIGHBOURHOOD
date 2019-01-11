@@ -112,7 +112,7 @@ input:focus{
     font-family: 'Spicy Rice', cursive;
 }
 
-.inputsection #findloc{
+#findloc{
     height:50px;
     width:50px;
     background-color: rgb(241, 224, 224);

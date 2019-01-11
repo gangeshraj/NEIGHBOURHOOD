@@ -15,8 +15,10 @@
           <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
      </head>
      <body>
-
           <section class="row outermost">
+                <div id="findloc"  data-bind="click:clickeffect,attr: { value:changesign }">
+                        <div class="cross"></div>
+                    </div>
                <div id="blacksection" data-bind="css:ifclasspresentone"><!--class added or removed on basis of the value returned by ifclasspresentone -->
                     <section class="row inputsection">
                          <div data-bind="visible: shouldShowMessage"><!--this element span will be shown only if shouldShowMessage returns true-->
@@ -32,9 +34,6 @@
                         </table>
                          </div>
                          <!-- onclick clickeffect() gets called also the attribute value changed on basis of changesign() value-->
-                         <div id="findloc"  data-bind="click:clickeffect,attr: { value:changesign }">
-                             <div class="cross"></div>
-                         </div>
                     </section>
                </div>
                <div id="map" ></div><!--class added or removed on basis of the value returned by ifclasspresenttwo -->
