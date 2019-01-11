@@ -88,6 +88,7 @@ td{
 
 input{
     border-radius:6px;
+    font-size:20px !important;
 }
 
 
@@ -96,7 +97,8 @@ input::placeholder{
     opacity:0.6;
 }
 
-input:focus{
+input:focus,
+input:active{
     font-size: 20px;
     color:black;
     text-align:left;
@@ -122,6 +124,7 @@ input:focus{
     top:20px;
     transform:translate(-100%,0%);
     transition: all 0.5s ease-out;
+    z-index:1;
 }
 
 .cross{
@@ -131,6 +134,27 @@ input:focus{
     width:30px;
     height:5px;
     transform: translate(-50%,-50%);
+    border-radius:3px;
+    background-color:#27010e;
+}
+
+
+.cross::before{
+    content:"";
+    position:absolute;
+    bottom:8px;
+    width:30px;
+    height:5px;
+    border-radius:3px;
+    background-color:#27010e;
+}
+
+.cross::after{
+    content:"";
+    position:absolute;
+    top:8px;
+    width:30px;
+    height:5px;
     border-radius:3px;
     background-color:#27010e;
 }
@@ -152,25 +176,6 @@ input:focus{
     top:0;
 }
 
-.cross::before{
-    content:"";
-    position:absolute;
-    bottom:8px;
-    width:30px;
-    height:5px;
-    border-radius:3px;
-    background-color:#27010e;
-}
-
-.cross::after{
-    content:"";
-    position:absolute;
-    top:8px;
-    width:30px;
-    height:5px;
-    border-radius:3px;
-    background-color:#27010e;
-}
 
 @media only screen and (max-width:700px){
     #blacksection{
