@@ -67,13 +67,13 @@ this.listclick=function(data,event)//calling listclick function to create marker
 //according the value of classpresent() add or remove class which is defined by bootstrap
 //gives more or less space to map
 this.ifclasspresentone = ko.pureComputed(function() {
-     return this.classpresent()? "col-xs-1 col-sm-1 col-md-1" : "col-xs-5 col-sm-3 col-md-3";
+     return this.classpresent()? "" : "";
 }, this);
 
 //according the value of classpresent() add or remove class which is defined by bootstrap
 //gives more or less space to map
 this.ifclasspresenttwo = ko.pureComputed(function() {
-     return this.classpresent()? "col-xs-13 col-sm-11 col-md-11" : "col-xs-17 col-sm-9 col-md-9";
+     return this.classpresent()? "" : "";
 }, this);
 
 //showing and hiding element <span> on the basis of value of classpresent()

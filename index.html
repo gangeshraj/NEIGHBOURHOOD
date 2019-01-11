@@ -12,30 +12,32 @@
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
           <!--font family -->
           <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css?family=Spicy+Rice" rel="stylesheet">
      </head>
      <body>
 
           <section class="row outermost">
                <div id="blacksection" data-bind="css:ifclasspresentone"><!--class added or removed on basis of the value returned by ifclasspresentone -->
                     <section class="row inputsection">
-                         <span data-bind="visible: shouldShowMessage"><!--this element span will be shown only if shouldShowMessage returns true-->
+                         <div data-bind="visible: shouldShowMessage"><!--this element span will be shown only if shouldShowMessage returns true-->
                          <h2 class="heading">FAMOUS PLACES IN YOUR NEIGHBOUR</h2>
-                         <h4 class="heading">clickto get details on places or list</h4>
                          <input id="inputloc" type="text" placeholder="Enter the location" data-bind="value: searchTerm, valueUpdate: 'afterkeydown', event: {keyup: searching}">
-                         </span>
+                         <table  class="list">
+                            <!--data bound by the returned value of results -->
+                            <tbody data-bind="foreach:results">
+                                 <tr>
+                                       <td data-bind="text:$data,click:$parent.listclick"></td>
+                                 </tr>
+                             </tbody>
+                        </table>
+                         </div>
                          <!-- onclick clickeffect() gets called also the attribute value changed on basis of changesign() value-->
-                         <input id="findloc" type="button" value="<<<<<" data-bind="click:clickeffect,attr: { value:changesign }">
+                         <div id="findloc"  data-bind="click:clickeffect,attr: { value:changesign }">
+                             <div class="cross"></div>
+                         </div>
                     </section>
-                    <table  class="list">
-                        <!--data bound by the returned value of results -->
-                        <tbody data-bind="foreach:results">
-                             <tr>
-                                   <td data-bind="text:$data,click:$parent.listclick"></td>
-                             </tr>
-                         </tbody>
-                    </table>
                </div>
-               <div id="map" data-bind="css:ifclasspresenttwo" ></div><!--class added or removed on basis of the value returned by ifclasspresenttwo -->
+               <div id="map" ></div><!--class added or removed on basis of the value returned by ifclasspresenttwo -->
           </section>
           <!--jquery file-->
           <script src="js/jquery-3.2.1.js"></script>
