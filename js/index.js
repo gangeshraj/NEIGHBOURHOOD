@@ -42,12 +42,19 @@ this.clickeffect=function() {//alternate the value of classpresent() from true t
      if (this.classpresent()===true)
           {
                this.changesign("<<<<<");
-               this.classpresent(false);
+               //this.classpresent(false);
+               document.getElementById('map').classList.toggle('map-closed');
+               document.getElementById('findloc').classList.toggle('closed');
+               document.getElementById('blacksection').classList.toggle('blacksection-closed')
           }
      else
           {
                this.changesign(">>>>>");
-               this.classpresent(true);
+               //this.classpresent(true);
+               document.getElementById('map').classList.toggle('map-closed');
+               document.getElementById('findloc').classList.toggle('closed');
+               document.getElementById('blacksection').classList.toggle('blacksection-closed');
+
           }
 };
 

@@ -51,11 +51,11 @@ td{
     margin: 0 !important;
 }
 
-#map{
+.outermost #map{
     position:fixed !important;
 }
 
-#blacksection{
+.outermost #blacksection{
     position:fixed;
     height:100vh;
     width:25vw;
@@ -63,12 +63,25 @@ td{
     top:0;
 }
 
-#map{
+.outermost #blacksection-closed{
+    position:fixed;
+    height:100vh;
+    width:0vw;
+    left:0;
+    top:0;
+}
+
+.outermost #map{
     position:fixed;
     height:100vh;
     width:75vw;
     left:25vw;
     top:0;
+}
+
+.map-closed{
+    width:100vw !important;
+    left:0px !important;
 }
 
 #blacksection .row{
@@ -117,13 +130,19 @@ input:active{
 #findloc{
     height:50px;
     width:50px;
-    background-color: rgb(241, 224, 224);
+    background-color: rgb(241, 13, 13);
     border-radius: 50%;
     position:fixed;
     left:calc(25vw - 20px);
     top:20px;
     transform:translate(-100%,0%);
     z-index:1;
+}
+
+#findloc.closed{
+    top:80px;
+    left:80px;
+    background-color: rgb(58, 186, 236);
 }
 
 
@@ -180,16 +199,74 @@ input:active{
 }
 
 
+
+
+
+
+
+
+
+
+
+
+#findloc.closed .cross{
+
+    background:transparent;
+}
+
+
+#findloc.closed .cross::before{
+    transform: rotate(135deg);
+    top:0;
+}
+
+#findloc.closed .cross::after{
+    transform: rotate(-135deg);
+    top:0;
+}
+
+#findloc.closed:hover .cross{
+    background:#27010e ;
+}
+
+
+
+#findloc.closed:hover .cross::before{
+    top:-8px;
+    /* background: green; */
+    transform: rotate(0deg);
+}
+
+
+#findloc.closed:hover .cross::after{
+    transform: rotate(0deg);
+    /* background: yellow; */
+    top:8px;
+}
+
+
+
+
 @media only screen and (max-width:700px){
-    #blacksection{
-        width:100vw;
+    .outermost #blacksection{
+        width:80vw;
+    }
+    .outermost #blacksection-closed{
+        width:0vw;
     }
     #findloc{
-        left:calc(100vw - 20px);
+        left:80px;
+        top:30px;
     }
-    #map{
-        width:0vw;
+    .outermost #map{
+        width:20vw;
+        left:80vw;
         position:fixed !important;
+    }
+
+    .map-closed{
+        width:100vw !important;
+        left:0px !important;
     }
 }
 
