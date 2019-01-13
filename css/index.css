@@ -120,7 +120,7 @@ input:active{
 
 .list{
     position:absolute;
-    top:200px;
+    top:105%;
     left:5%;
     right:5%;
     font-size:30px;
@@ -138,11 +138,22 @@ input:active{
     transform:translate(-100%,0%);
     z-index:1;
 }
+#findloc:hover{
+    cursor: pointer;
+}
 
 #findloc.closed{
     top:100px;
     left:80px;
     background-color: rgb(58, 186, 236);
+}
+
+
+.clickasker{
+    font-size:15px;
+    color:red;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 
@@ -255,7 +266,7 @@ input:active{
         width:0vw;
     }
     #findloc{
-        left:80px;
+        left:calc(80vw - 30px);
         top:30px;
     }
     .outermost #map{
